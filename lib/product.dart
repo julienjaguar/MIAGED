@@ -17,6 +17,12 @@ class ProductDetailPage extends StatefulWidget {
 
 class _ProductDetailPageState extends State<ProductDetailPage> {
 
+
+// declaration de Is pressed pour choisir la taille
+
+List<bool> isButtonPressed = [false, false, false, false];
+
+
 final Counter _counter = Counter();
 
 
@@ -36,6 +42,10 @@ final Counter _counter = Counter();
 
   @override
   Widget build(BuildContext context) {
+
+
+
+
     // You have to call it on your starting screen
     SizeConfig().init(context);
 return  Scaffold(
@@ -404,115 +414,174 @@ return  Scaffold(
                       ),
                       Row(
                         children: [
-                          Container(
-                            height: SizeConfig.blockSizeHorizontal! * 9.5,
-                            width: SizeConfig.blockSizeHorizontal! * 9.5,
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: kLightGrey,
-                                width: 1,
-                              ),
-                              shape: BoxShape.circle,
-                              color: kWhite,
-                            ),
-                            child: Center(
-                              child: Text(
-                                'S',
-                                style: kEncodeSansRagular.copyWith(
-                                  color: kDarkBrown,
-                                  fontSize:
-                                      SizeConfig.blockSizeHorizontal! * 2.7,
-                                ),
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            width: SizeConfig.blockSizeHorizontal! * 1,
-                          ),
-                          Container(
-                            height: SizeConfig.blockSizeHorizontal! * 9.5,
-                            width: SizeConfig.blockSizeHorizontal! * 9.5,
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: kLightGrey,
-                                width: 2,
-                              ),
-                              shape: BoxShape.circle,
-                              color: kWhite,
-                            ),
-                            child: Center(
-                              child: Text(
-                                'M',
-                                style: kEncodeSansRagular.copyWith(
-                                  color: kDarkBrown,
-                                  fontSize:
-                                      SizeConfig.blockSizeHorizontal! * 2.7,
-                                ),
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            width: SizeConfig.blockSizeHorizontal! * 1,
-                          ),
 
 
-                          Container(
-                            height: SizeConfig.blockSizeHorizontal! * 9.5,
-                            width: SizeConfig.blockSizeHorizontal! * 9.5,
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: kLightGrey,
-                                width: 1,
-                              ),
-                              shape: BoxShape.circle,
-                              color: kWhite,
+
+                                          // S
+
+
+                         
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+      isButtonPressed[0] = !isButtonPressed[0];
+                          });
+                        },
+                        child: Container(
+                          height: SizeConfig.blockSizeHorizontal! * 9.5,
+                          width: SizeConfig.blockSizeHorizontal! * 9.5,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: kLightGrey,
+                              width: 1,
                             ),
-                            child: Center(
-                              child: Text(
-                                'L',
-                                style: kEncodeSansBold.copyWith(
-                                  color: kBlack,
-                                  fontSize:
-                                      SizeConfig.blockSizeHorizontal! * 2.7,
-                                ),
+                            shape: BoxShape.circle,
+
+                            color: isButtonPressed[0] ? kYellow : kWhite,
+                          ),
+                          child: Center(
+                            child: Text(
+                              'S',
+                              style: kEncodeSansRagular.copyWith(
+                                color: kDarkBrown,
+                                fontSize: SizeConfig.blockSizeHorizontal! * 2.7,
                               ),
                             ),
                           ),
+                        ),
+                      ),
+
+
+
+
+
 
                           SizedBox(
                             width: SizeConfig.blockSizeHorizontal! * 1,
                           ),
 
 
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
 
-                              });
-                            },
-                            child: Container(
-                              height: SizeConfig.blockSizeHorizontal! * 9.5,
-                              width: SizeConfig.blockSizeHorizontal! * 9.5,
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                  color: kLightGrey,
-                                  width: 1,
-                                ),
-                                shape: BoxShape.circle,
-                                color: kWhite,
-                              ),
-                              child: Center(
-                                child: Text(
-                                  'XL',
-                                  style: kEncodeSansRagular.copyWith(
-                                    color: kDarkBrown,
-                                    fontSize:
-                                        SizeConfig.blockSizeHorizontal! * 2.7,
-                                  ),
-                                ),
+
+                                      // M
+
+
+                         GestureDetector(
+                        onTap: () {
+                          setState(() {
+      isButtonPressed[1] = !isButtonPressed[1];
+                          });
+                        },
+                        child: Container(
+                          height: SizeConfig.blockSizeHorizontal! * 9.5,
+                          width: SizeConfig.blockSizeHorizontal! * 9.5,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: kLightGrey,
+                              width: 1,
+                            ),
+                            shape: BoxShape.circle,
+
+                            color: isButtonPressed[1] ? kYellow : kWhite,
+                          ),
+                          child: Center(
+                            child: Text(
+                              'M',
+                              style: kEncodeSansRagular.copyWith(
+                                color: kDarkBrown,
+                                fontSize: SizeConfig.blockSizeHorizontal! * 2.7,
                               ),
                             ),
                           ),
+                        ),
+                      ),
+
+
+
+
+                          SizedBox(
+                            width: SizeConfig.blockSizeHorizontal! * 1,
+                          ),
+
+
+
+                                        // L
+
+
+                         GestureDetector(
+                        onTap: () {
+                          setState(() {
+      isButtonPressed[2] = !isButtonPressed[2];
+                          });
+                        },
+                        child: Container(
+                          height: SizeConfig.blockSizeHorizontal! * 9.5,
+                          width: SizeConfig.blockSizeHorizontal! * 9.5,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: kLightGrey,
+                              width: 1,
+                            ),
+                            shape: BoxShape.circle,
+
+                            color: isButtonPressed[2] ? kYellow : kWhite,
+                          ),
+                          child: Center(
+                            child: Text(
+                              'L',
+                              style: kEncodeSansRagular.copyWith(
+                                color: kDarkBrown,
+                                fontSize: SizeConfig.blockSizeHorizontal! * 2.7,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+
+
+
+
+
+
+                          SizedBox(
+                            width: SizeConfig.blockSizeHorizontal! * 1,
+                          ),
+
+                                          
+                                          
+                                          
+                                          // XL       
+
+                           GestureDetector(
+                        onTap: () {
+                          setState(() {
+      isButtonPressed[3] = !isButtonPressed[3];
+                          });
+                        },
+                        child: Container(
+                          height: SizeConfig.blockSizeHorizontal! * 9.5,
+                          width: SizeConfig.blockSizeHorizontal! * 9.5,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: kLightGrey,
+                              width: 1,
+                            ),
+                            shape: BoxShape.circle,
+
+                            color: isButtonPressed[3] ? kYellow : kWhite,
+                          ),
+                          child: Center(
+                            child: Text(
+                              'XL',
+                              style: kEncodeSansRagular.copyWith(
+                                color: kDarkBrown,
+                                fontSize: SizeConfig.blockSizeHorizontal! * 2.7,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                          
                         ],
                       )
                     ],

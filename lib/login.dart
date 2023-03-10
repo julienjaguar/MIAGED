@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projet_vetements_miage/product.dart';
 
 import 'home.dart';
 
