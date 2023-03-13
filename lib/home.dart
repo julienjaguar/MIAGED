@@ -299,10 +299,15 @@ class _HomeScreenState extends State<HomeScreen> {
                     crossAxisCount: 2,
                     crossAxisSpacing: 20,
                     mainAxisSpacing: 23,
+
+                    // parcourir toutes les images
+
                     itemCount: images.length,
+
                     padding: const EdgeInsets.symmetric(
                       horizontal: kPaddingHorizontal,
                     ),
+                    
                     itemBuilder: (context, index) {
                       return GestureDetector(
                         onTap: () {
@@ -353,6 +358,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             const SizedBox(
                               height: 8,
                             ),
+
+                            // nom du produit
+                            
                             Text(
                               'Robe Rosa Linda',
                               maxLines: 1,
