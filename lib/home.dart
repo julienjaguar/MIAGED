@@ -49,7 +49,7 @@ final List<IconData> icons = [
 // creons notre listes des images de vetements a afficher
 
 
-  final List<Robes> robes = Robes.robes();
+  final List<Robe> robes = Robe.robes();
 
 
 // ajouter current index pour le bottom navigation bar
@@ -283,9 +283,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
           const SizedBox(height: 25),
 
-
-
-
                   MasonryGridView.count(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
@@ -305,16 +302,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   
                    itemBuilder: (context, index) {
                         return GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
+                           onTap: () {
+                            Navigator.of(context).push(
                               MaterialPageRoute(
-                                builder: (context) => const ProductDetailPage(),
+                                builder: (context) =>  ProductDetailPage(robes[index]),
                               ),
                             );
                           },
-
-
 
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,

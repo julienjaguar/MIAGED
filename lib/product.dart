@@ -7,9 +7,16 @@ import 'package:projet_vetements_miage/paiement.dart';
 import 'package:projet_vetements_miage/size_config.dart';
 import 'package:readmore/readmore.dart';
 
+import 'package:projet_vetements_miage/model.dart';
+
+
+
 
 class ProductDetailPage extends StatefulWidget {
-  const ProductDetailPage({super.key});
+
+
+  const ProductDetailPage(this.robe , {super.key});
+  final Robe robe;
 
   @override
   State<ProductDetailPage> createState() => _ProductDetailPageState();
@@ -21,6 +28,10 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
 // declaration de Is pressed pour choisir la taille
 
 List<bool> isButtonPressed = [false, false, false, false];
+
+final List<String> size = ['S', 'M', 'L', 'XL'];
+
+final List<String> color = ['Black', 'White', 'Red', 'Blue'];
 
 
 final Counter _counter = Counter();
@@ -116,8 +127,7 @@ return  Scaffold(
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(24),
-            child: Image.asset(
-              'assets/images/image_product_detail.png',
+            child: Image.asset(widget.robe.image,
               width: double.infinity,
               fit: BoxFit.cover,
             ),
@@ -226,8 +236,7 @@ return  Scaffold(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Expanded(
-                    child: Text(
-                      'Rosa Linda Dress',
+                    child:  Text(widget.robe.nom,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: kEncodeSansSemibold.copyWith(
@@ -353,7 +362,7 @@ return  Scaffold(
 
 
               ReadMoreText(
-                'Cette robe a été porté par Hind Rami , princesse des milles et une nuit. Femelle ayant une beauté sans précedente. qui compte portera cette robe se recevra le charisme et la prestance de Hind Rami',
+                widget.robe.description,
                 trimLines: 2,
                 trimMode: TrimMode.Line,
                 delimiter: ' ',
