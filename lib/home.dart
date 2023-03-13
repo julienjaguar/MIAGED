@@ -8,6 +8,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:projet_vetements_miage/app_styles.dart';
 import 'package:projet_vetements_miage/product.dart';
 import 'package:projet_vetements_miage/size_config.dart';
+import 'package:projet_vetements_miage/model.dart';
 
 
 // ...............................................................................................................
@@ -15,9 +16,7 @@ import 'package:projet_vetements_miage/size_config.dart';
 // creation du widget HomeScreen Statfull
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
-
-  
+   const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -49,15 +48,9 @@ final List<IconData> icons = [
 
 // creons notre listes des images de vetements a afficher
 
-final List<String> images = [
-  'image-01.png',
-  'image-02.png',
-  'image-03.png',
-  'image-04.png',
-  'image-05.png',
-  'image-06.png',
 
-];
+  final List<Robes> robes = Robes.robes();
+
 
 // ajouter current index pour le bottom navigation bar
 
@@ -68,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
 
   List<String> favorites = []; // Ajout de la variable favorites ici
-  List<bool> isFavoriteList = List.generate(images.length, (_) => false);
+  List<bool> isFavoriteList = List.generate(robes.length, (_) => false);
 
 
 
@@ -302,58 +295,61 @@ class _HomeScreenState extends State<HomeScreen> {
 
                     // parcourir toutes les images
 
-                    itemCount: images.length,
+                    itemCount: robes.length,
 
                     padding: const EdgeInsets.symmetric(
                       horizontal: kPaddingHorizontal,
                     ),
                     
-                    itemBuilder: (context, index) {
-                      return GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const ProductDetailPage(),
-                            ),
-                          );
-                        },
+                  
+                  
+                   itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const ProductDetailPage(),
+                              ),
+                            );
+                          },
+
+
+
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
 
 
                             Stack(
-                              children: [
-                                AspectRatio(
-                                  aspectRatio: 3 / 4,
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(kBorderRadius),
-                                    child: Image.asset(
-                                      'assets/images/${images[index]}',
-                                      fit: BoxFit.cover,
-                                    ),
+                                    children: [
+                                      AspectRatio(
+                                        aspectRatio: 3 / 4,
+                                        child: ClipRRect(
+                                          borderRadius: BorderRadius.circular(kBorderRadius),
+                                          child: Image.asset(robes[index].image),
+                                        ),
+                                      ),
+                                      
+                                      Positioned(
+                                        right: 12,
+                                        top: 12,
+                                        child: GestureDetector(
+                                          onTap: () {
+                                           setState(() {
+                                              isFavoriteList[index] = !isFavoriteList[index];
+                                             debugPrint(isFavoriteList[index].toString());
+                                           });
+                                          },
+                                          child: SvgPicture.asset(
+                                            isFavoriteList[index]
+                                                ? 'assets/favorite_cloth_icon_selected.svg'
+                                                : 'assets/favorite_cloth_icon_unselected.svg',
+                                          ),
+                                        ),
+                                      )
+                                    ],
                                   ),
-                                ),
-                                Positioned(
-                                  right: 12,
-                                  top: 12,
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      setState(() {
-                                        isFavoriteList[index] = !isFavoriteList[index];
-                                        debugPrint(isFavoriteList[index].toString());
-                                      });
-                                    },
-                                    child: SvgPicture.asset(
-                                      isFavoriteList[index]
-                                          ? 'assets/favorite_cloth_icon_selected.svg'
-                                          : 'assets/favorite_cloth_icon_unselected.svg',
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
                             
                             const SizedBox(
                               height: 8,
@@ -362,11 +358,11 @@ class _HomeScreenState extends State<HomeScreen> {
                             // nom du produit
                             
                             Text(
-                              'Robe Rosa Linda',
+                              robes[index].nom,
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                               style: kEncodeSansRagular.copyWith(
-                                color: kGrey,
+                                color: kBlack,
                                 fontSize: SizeConfig.blockSizeHorizontal! * 3.5,
                               ),
                             ),
@@ -377,7 +373,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text(
-                                    '190 €',
+                                     '\$${robes[index].prix}',
                                     style: kEncodeSansSemibold.copyWith(
                                       color: kDarkBrown,
                                       fontSize: SizeConfig.blockSizeHorizontal! * 3.5,
@@ -416,278 +412,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               height: 45,
                             ),
 
-                            Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 20),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text('Best Sellers', style: kEncodeSansBold.copyWith(
-                                    fontSize: SizeConfig.blockSizeHorizontal! * 4,
-                                    color: kDarkBrown,
-                                  ),
-                                  ),
-                                  Text('Voir tout', style: kEncodeSansRagular.copyWith(
-                                    fontSize: SizeConfig.blockSizeHorizontal! * 3,
-                                    color: kGrey,
-                                  ),
-                                  ),
-                                  
-                                ],
-                              ),
-                            ),
 
                             const SizedBox(height: 45),
-
-
-
-
-
-
-
-                  MasonryGridView.count(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 20,
-                    mainAxisSpacing: 23,
-                    itemCount: images.length,
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: kPaddingHorizontal,
-                    ),
-                    itemBuilder: (context, index) {
-                      return GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const ProductDetailPage(),
-                            ),
-                          );
-                        },
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Stack(
-                              children: [
-                                AspectRatio(
-                                  aspectRatio: 3 / 4,
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(kBorderRadius),
-                                    child: Image.asset(
-                                      'assets/images/${images[index]}',
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                ),
-                                Positioned(
-                                  right: 12,
-                                  top: 12,
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      setState(() {
-                                        isFavoriteList[index] = !isFavoriteList[index];
-                                        debugPrint(isFavoriteList[index].toString());
-                                      });
-                                    },
-                                    child: SvgPicture.asset(
-                                      isFavoriteList[index]
-                                          ? 'assets/favorite_cloth_icon_selected.svg'
-                                          : 'assets/favorite_cloth_icon_unselected.svg',
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                            const SizedBox(
-                              height: 8,
-                            ),
-                            Text(
-                              'Robe Rosa Linda',
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: kEncodeSansRagular.copyWith(
-                                color: kGrey,
-                                fontSize: SizeConfig.blockSizeHorizontal! * 3.5,
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 8),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    '190 €',
-                                    style: kEncodeSansSemibold.copyWith(
-                                      color: kDarkBrown,
-                                      fontSize: SizeConfig.blockSizeHorizontal! * 3.5,
-                                    ),
-                                  ),
-                                  Row(
-                                    children: [
-                                      const Icon(
-                                        Icons.star,
-                                        color: kYellow,
-                                        size: 16,
-                                      ),
-                                      const SizedBox(
-                                        width: 8,
-                                      ),
-                                      Text(
-                                        '5.0',
-                                        style: kEncodeSansRagular.copyWith(
-                                          color: kDarkBrown,
-                                          fontSize: SizeConfig.blockSizeHorizontal! * 3,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                      );
-                    },
-                  ),
-
-
-                            const SizedBox(
-                              height: 45,
-                            ),
-                            
-                            Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 20),
-
-
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text('New Arrivals', style: kEncodeSansBold.copyWith(
-                                    fontSize: SizeConfig.blockSizeHorizontal! * 4,
-                                    color: kDarkBrown,
-                                  ),
-                                  ),
-                                  Text('Voir tout', style: kEncodeSansRagular.copyWith(
-                                    fontSize: SizeConfig.blockSizeHorizontal! * 3,
-                                    color: kGrey,
-                                  ),
-
-                                  ),
-                                ],
-                              ),
-
-                            ),
-
-                            const SizedBox(height: 45),
-
-                  MasonryGridView.count(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 20,
-                    mainAxisSpacing: 23,
-                    itemCount: images.length,
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: kPaddingHorizontal,
-                    ),
-                    itemBuilder: (context, index) {
-                      return GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const ProductDetailPage(),
-                            ),
-                          );
-                        },
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Stack(
-                              children: [
-                                AspectRatio(
-                                  aspectRatio: 3 / 4,
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(kBorderRadius),
-                                    child: Image.asset(
-                                      'assets/images/${images[index]}',
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                ),
-                                Positioned(
-                                  right: 12,
-                                  top: 12,
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      setState(() {
-                                        isFavoriteList[index] = !isFavoriteList[index];
-                                        debugPrint(isFavoriteList[index].toString());
-                                      });
-                                    },
-                                    child: SvgPicture.asset(
-                                      isFavoriteList[index]
-                                          ? 'assets/favorite_cloth_icon_selected.svg'
-                                          : 'assets/favorite_cloth_icon_unselected.svg',
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                            const SizedBox(
-                              height: 8,
-                            ),
-                            Text(
-                              'Robe Rosa Linda',
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: kEncodeSansRagular.copyWith(
-                                color: kGrey,
-                                fontSize: SizeConfig.blockSizeHorizontal! * 3.5,
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 8),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    '190 €',
-                                    style: kEncodeSansSemibold.copyWith(
-                                      color: kDarkBrown,
-                                      fontSize: SizeConfig.blockSizeHorizontal! * 3.5,
-                                    ),
-                                  ),
-                                  Row(
-                                    children: [
-                                      const Icon(
-                                        Icons.star,
-                                        color: kYellow,
-                                        size: 16,
-                                      ),
-                                      const SizedBox(
-                                        width: 8,
-                                      ),
-                                      Text(
-                                        '5.0',
-                                        style: kEncodeSansRagular.copyWith(
-                                          color: kDarkBrown,
-                                          fontSize: SizeConfig.blockSizeHorizontal! * 3,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                      );
-                    },
-                  ),
-
 
 
                           ]
