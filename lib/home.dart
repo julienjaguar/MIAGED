@@ -367,7 +367,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text(
-                                     '\$${robes[index].prix}',
+                                      '${robes[index].prix.toStringAsFixed(2)} €',
                                     style: kEncodeSansSemibold.copyWith(
                                       color: kDarkBrown,
                                       fontSize: SizeConfig.blockSizeHorizontal! * 3.5,

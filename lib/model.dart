@@ -18,7 +18,7 @@ class Robe {
       Robe(
         'assets/images/image-01.png',
         'Robe Empire Rosa',
-        180,
+        160,
         "Une robe longue en mousseline de soie bleu clair, avec une encolure en V et des manches courtes évasées.Cette robe a été porté par Hind Rami , princesse des milles et une nuit. Femelle ayant une beauté sans précedente. qui compte portera cette robe se recevra le charisme et la prestance de Hind Rami",
         [
           'assets/images/image-01.png',
@@ -40,7 +40,7 @@ class Robe {
        Robe(
         'assets/images/image-03.png',
         'Robe sirène da Squaza',
-        180,
+        185,
         "Une robe courte sans bretelles en satin rouge vif, avec une jupe plissée et une ceinture en strass.Une robe à fleurs en coton rouge, avec un décolleté en V plongeant et des bretelles spaghetti croisées dans le dos.Cette robe a été porté par Hind Rami , princesse des milles et une nuit. Femelle ayant une beauté sans précedente. qui compte portera cette robe se recevra le charisme et la prestance de Hind Rami",
         [
           'assets/images/image-03.png',
@@ -73,7 +73,7 @@ class Robe {
        Robe(
         'assets/images/image-06.png',
         'Robe bustier Sacnchez',
-        210,
+        205,
         "Une robe maxi en coton blanc avec des broderies florales colorées, une encolure en V et des manches courtes ballon.Une robe fourreau en cuir noir, avec une encolure haute et des manches longues en dentelle.Cette robe a été porté par Hind Rami , princesse des milles et une nuit. Femelle ayant une beauté sans précedente. qui compte portera cette robe se recevra le charisme et la prestance de Hind Rami",
         [
           'assets/images/image-06.png',

@@ -96,7 +96,7 @@ return  Scaffold(
 
                 child: RichText(
                   text: TextSpan(
-                    text: 'Add to Cart   |    190 € ',
+                    text: 'Add to Cart   ${widget.robe.prix.toString()} €',
                     style: kEncodeSansBold.copyWith(
                       color: kWhite,
                       fontSize: SizeConfig.blockSizeHorizontal! * 4,
