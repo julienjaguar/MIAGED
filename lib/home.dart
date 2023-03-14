@@ -58,6 +58,9 @@ class _HomeScreenState extends State<HomeScreen> {
   List<bool> isFavoriteList = List.generate(robes.length, (_) => false);
 
   List<Robe> itemsFiltres = robes;
+
+  final TextEditingController searchController = TextEditingController();
+
   
 
   @override
@@ -127,6 +130,9 @@ class _HomeScreenState extends State<HomeScreen> {
          
           Row(children: [
             Expanded(child: TextField(
+
+                      controller: searchController, // assignation du controleur
+
               decoration: InputDecoration(
                 hintText: 'Rechercher une robe',
                 hintStyle: kEncodeSansRagular.copyWith(
@@ -155,7 +161,15 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               
               child: IconButton(
-                onPressed: () {},
+        onPressed: () {
+          // Rechercher les robes contenant la chaîne de recherche
+          final String query = searchController.text.toLowerCase();
+          setState(() {
+            itemsFiltres = robes
+                .where((robe) => robe.nom.toLowerCase().contains(query))
+                .toList();
+          });
+        },
                 icon: const Icon(Icons.filter_list, color: kDarkBrown),
               ),
             ),
