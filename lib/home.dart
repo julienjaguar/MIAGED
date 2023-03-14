@@ -16,7 +16,8 @@ import 'package:projet_vetements_miage/model.dart';
 // creation du widget HomeScreen Statfull
 
 class HomeScreen extends StatefulWidget {
-   const HomeScreen({super.key});
+   const HomeScreen( {super.key});
+
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -26,7 +27,7 @@ class HomeScreen extends StatefulWidget {
 
 final List<String> categories = [
   'T-Shirts',
-  'Chemises',
+  'Chapeau',
   'Maillots',
   'Chaussettes',
   'Valises',
@@ -46,14 +47,7 @@ final List<IconData> icons = [
   FontAwesomeIcons.female,
 ];
 
-// creons notre listes des images de vetements a afficher
-
-
   final List<Robe> robes = Robe.robes();
-
-
-// ajouter current index pour le bottom navigation bar
-
 int currentIndex = 0;
 
 
@@ -63,7 +57,8 @@ class _HomeScreenState extends State<HomeScreen> {
   List<String> favorites = []; // Ajout de la variable favorites ici
   List<bool> isFavoriteList = List.generate(robes.length, (_) => false);
 
-
+  List<Robe> itemsFiltres = robes;
+  
 
   @override
   Widget build(BuildContext context) {
@@ -148,6 +143,8 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             ),
             const SizedBox(width: 10), // margin entre les deux widget  de la row barre de recherche et le bouton filtre
+           
+           
             Container(
               margin: const EdgeInsets.only(left: 10, right: 10),
               decoration: BoxDecoration(
@@ -202,7 +199,20 @@ class _HomeScreenState extends State<HomeScreen> {
 
                   ) {
                     setState(() {
-                      currentIndex = index; // pour changer la couleur du conteneur quand on clique sur une categorie
+
+
+                      // pour changer la couleur du conteneur quand on clique sur une categorie
+                      // filtrage selon la categorie selectionnee
+                    
+                    itemsFiltres = robes.where((robe) => robe.type == categories[index]).toList();
+
+                      currentIndex = index;
+
+
+                    debugPrint('categorie selectionnee : ${categories[index]}');
+                     debugPrint(categories[index]);
+         
+
                     });
 
                   },
@@ -292,7 +302,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                     // parcourir toutes les images
 
-                    itemCount: robes.length,
+                    itemCount: itemsFiltres.length,
 
                     padding: const EdgeInsets.symmetric(
                       horizontal: kPaddingHorizontal,
@@ -305,7 +315,7 @@ class _HomeScreenState extends State<HomeScreen> {
                            onTap: () {
                             Navigator.of(context).push(
                               MaterialPageRoute(
-                                builder: (context) =>  ProductDetailPage(robes[index]),
+                                builder: (context) =>  ProductDetailPage(itemsFiltres[index]),
                               ),
                             );
                           },
@@ -321,7 +331,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         aspectRatio: 3 / 4,
                                         child: ClipRRect(
                                           borderRadius: BorderRadius.circular(kBorderRadius),
-                                          child: Image.asset(robes[index].image),
+                                          child: Image.asset(itemsFiltres[index].image),
                                         ),
                                       ),
                                       
@@ -352,7 +362,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             // nom du produit
                             
                             Text(
-                              robes[index].nom,
+                              itemsFiltres[index].nom,
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                               style: kEncodeSansRagular.copyWith(
@@ -367,7 +377,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text(
-                                      '${robes[index].prix.toStringAsFixed(2)} €',
+                                      '${itemsFiltres[index].prix.toStringAsFixed(2)} €',
                                     style: kEncodeSansSemibold.copyWith(
                                       color: kDarkBrown,
                                       fontSize: SizeConfig.blockSizeHorizontal! * 3.5,
