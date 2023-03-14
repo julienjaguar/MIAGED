@@ -54,10 +54,10 @@ int currentIndex = 0;
 class _HomeScreenState extends State<HomeScreen> {
 
 
-  List<String> favorites = []; // Ajout de la variable favorites ici
-  List<bool> isFavoriteList = List.generate(robes.length, (_) => false);
+    List<Robe> itemsFiltres = robes;
 
-  List<Robe> itemsFiltres = robes;
+  List<Robe> isFavorites = []; // Ajout de la variable favorites ici
+
 
   final TextEditingController searchController = TextEditingController();
 
@@ -349,18 +349,31 @@ class _HomeScreenState extends State<HomeScreen> {
                                         ),
                                       ),
                                       
+                                      
+                                      
+                                      
                                       Positioned(
                                         right: 12,
                                         top: 12,
                                         child: GestureDetector(
                                           onTap: () {
+
+
                                            setState(() {
-                                              isFavoriteList[index] = !isFavoriteList[index];
-                                             debugPrint(isFavoriteList[index].toString());
+
+                                                         
+                                             itemsFiltres[index].isFavorite = !itemsFiltres[index].isFavorite;
+                                             debugPrint(isFavorites.toString());
+                                             
+
+                                             
                                            });
                                           },
+
+
                                           child: SvgPicture.asset(
-                                            isFavoriteList[index]
+                                                      itemsFiltres[index].isFavorite
+
                                                 ? 'assets/favorite_cloth_icon_selected.svg'
                                                 : 'assets/favorite_cloth_icon_unselected.svg',
                                           ),

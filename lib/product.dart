@@ -172,56 +172,14 @@ return  Scaffold(
   ),
 ),
                             
-                            Container(
-                              height: SizeConfig.blockSizeVertical! * 4,
-                              width: SizeConfig.blockSizeVertical! * 4,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: kWhite,
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: kBrown.withOpacity(0.11),
-                                    spreadRadius: 0.0,
-                                    blurRadius: 12,
-                                    offset: const Offset(0, 5),
-                                  )
-                                ],
-                              ),
-                              padding: const EdgeInsets.all(8),
-                              child: SvgPicture.asset(
-                                'assets/favorite_black_icon.svg',
-                              ),
-                            ),
+                            
+                            
                           ],
                         ),
                       ),
                     ),
 
          
-
-          Positioned(
-            bottom: 0,
-            left: 0,
-            child: Container(
-              padding: const EdgeInsets.all(8),
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(24),
-                ),
-              ),
-              child: Row(
-                children: const [
-                  Icon(
-                    Icons.share,
-                    color: Colors.red,
-                  ),
-                  Text('Share'),
-                ],
-              ),
-            ),
-          ),
-
         
 
         ],

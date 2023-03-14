@@ -5,6 +5,7 @@ class Robe {
   String type;
   String description;
   List<String> images;
+  bool isFavorite;
 
   Robe(
     this.image,
@@ -13,6 +14,7 @@ class Robe {
     this.type,
     this.description,
     this.images,
+    this.isFavorite,
   );
 
   static List<Robe> robes() {
@@ -28,6 +30,8 @@ class Robe {
           'assets/images/image-01.png',
           'assets/images/image-01.png',
         ],
+        false,
+
       ),
       Robe(
         'assets/images/image-02.png',
@@ -41,6 +45,7 @@ class Robe {
           'assets/images/image-02.png',
           'assets/images/image-02.png',
         ],
+        false,
       ),
        Robe(
         'assets/images/image-03.png',
@@ -54,6 +59,7 @@ class Robe {
           'assets/images/image-03.png',
           'assets/images/image-03.png',
         ],
+        false,
       ),
        Robe(
         'assets/images/image-04.png',
@@ -67,6 +73,7 @@ class Robe {
           'assets/images/image-04.png',
           'assets/images/image-04.png',
         ],
+        false,
       ),
        Robe(
         'assets/images/image-05.png',
@@ -80,6 +87,7 @@ class Robe {
           'assets/images/image-05.png',
           'assets/images/image-05.png',
         ],
+        false,
       ),
        Robe(
         'assets/images/image-06.png',
@@ -93,6 +101,7 @@ class Robe {
           'assets/images/image-06.png',
           'assets/images/image-06.png',
         ],
+        false,
       ),
        Robe(
         'assets/images/image-07.png',
@@ -106,6 +115,7 @@ class Robe {
           'assets/images/image-07.png',
           'assets/images/image-07.png',
         ],
+        false,
       ),
        Robe(
         'assets/images/image-08.png',
@@ -119,6 +129,7 @@ class Robe {
           'assets/images/image-08.png',
           'assets/images/image-08.png',
         ],
+        false,
       ),
       Robe(
         'assets/images/shirt1.png',
@@ -132,6 +143,7 @@ class Robe {
           'assets/images/image-08.png',
           'assets/images/image-08.png',
         ],
+        false,
       ),
       Robe(
         'assets/images/shirt2.png',
@@ -145,6 +157,7 @@ class Robe {
           'assets/images/image-08.png',
           'assets/images/image-08.png',
         ],
+        false,
       ),
       Robe(
         'assets/images/shirt3.png',
@@ -158,6 +171,7 @@ class Robe {
           'assets/images/image-08.png',
           'assets/images/image-08.png',
         ],
+        false,
       ),
       Robe(
         'assets/images/shirt4.png',
@@ -171,6 +185,7 @@ class Robe {
           'assets/images/image-08.png',
           'assets/images/image-08.png',
         ],
+        false,
       ),
 
       Robe(
@@ -185,6 +200,7 @@ class Robe {
           'assets/images/image-08.png',
           'assets/images/image-08.png',
         ],
+        false,
       ),
 
       Robe(
@@ -199,6 +215,7 @@ class Robe {
           'assets/images/image-08.png',
           'assets/images/image-08.png',
         ],
+        false,
       ),
 
       Robe(
@@ -213,6 +230,7 @@ class Robe {
           'assets/images/image-08.png',
           'assets/images/image-08.png',
         ],
+        false,
       ),
 
       Robe(
@@ -227,6 +245,7 @@ class Robe {
           'assets/images/image-08.png',
           'assets/images/image-08.png',
         ],
+        false,
       ),
       Robe(
         'assets/images/chapeau4.png',
@@ -240,6 +259,7 @@ class Robe {
           'assets/images/image-08.png',
           'assets/images/image-08.png',
         ],
+        false,
       ),
       Robe(
         'assets/images/chapeau3.png',
@@ -253,6 +273,7 @@ class Robe {
           'assets/images/image-08.png',
           'assets/images/image-08.png',
         ],
+        false,
       ),
       Robe(
         'assets/images/chapeau2.png',
@@ -266,6 +287,7 @@ class Robe {
           'assets/images/image-08.png',
           'assets/images/image-08.png',
         ],
+        false,
       ),
       Robe(
         'assets/images/chapeau1.png',
@@ -279,6 +301,7 @@ class Robe {
           'assets/images/image-08.png',
           'assets/images/image-08.png',
         ],
+        false,
       ),
 
       Robe(
@@ -293,6 +316,7 @@ class Robe {
           'assets/images/image-08.png',
           'assets/images/image-08.png',
         ],
+        false,
       ),
 
       Robe(
@@ -307,6 +331,7 @@ class Robe {
           'assets/images/image-08.png',
           'assets/images/image-08.png',
         ],
+        false,
       ),
 
       Robe(
@@ -321,6 +346,7 @@ class Robe {
           'assets/images/image-08.png',
           'assets/images/image-08.png',
         ],
+        false,
       ),
 
       Robe(
@@ -335,6 +361,7 @@ class Robe {
           'assets/images/image-08.png',
           'assets/images/image-08.png',
         ],
+        false,
       ),
 
        Robe(
@@ -349,6 +376,7 @@ class Robe {
           'assets/images/image-08.png',
           'assets/images/image-08.png',
         ],
+        false,
       ),
 
        Robe(
@@ -363,6 +391,7 @@ class Robe {
           'assets/images/image-08.png',
           'assets/images/image-08.png',
         ],
+        false,
       ),
 
       Robe(
@@ -377,6 +406,7 @@ class Robe {
           'assets/images/image-08.png',
           'assets/images/image-08.png',
         ],
+        false,
       ),
 
       Robe(
@@ -391,6 +421,7 @@ class Robe {
           'assets/images/image-08.png',
           'assets/images/image-08.png',
         ],
+        false,
       ),
 
        Robe(
@@ -405,6 +436,7 @@ class Robe {
           'assets/images/image-08.png',
           'assets/images/image-08.png',
         ],
+        false,
       ),
 
       Robe(
@@ -419,6 +451,7 @@ class Robe {
           'assets/images/image-08.png',
           'assets/images/image-08.png',
         ],
+        false,
       ),
       Robe(
         'assets/images/lunette6.png',
@@ -432,6 +465,7 @@ class Robe {
           'assets/images/image-08.png',
           'assets/images/image-08.png',
         ],
+        false,
       ),
       Robe(
         'assets/images/lunette5.png',
@@ -445,6 +479,7 @@ class Robe {
           'assets/images/image-08.png',
           'assets/images/image-08.png',
         ],
+        false,
       ),
       Robe(
         'assets/images/lunette4.png',
@@ -458,6 +493,7 @@ class Robe {
           'assets/images/image-08.png',
           'assets/images/image-08.png',
         ],
+        false,
       ),
       Robe(
         'assets/images/lunette3.png',
@@ -471,6 +507,7 @@ class Robe {
           'assets/images/image-08.png',
           'assets/images/image-08.png',
         ],
+        false,
       ),
       Robe(
         'assets/images/lunette2.png',
@@ -484,6 +521,7 @@ class Robe {
           'assets/images/image-08.png',
           'assets/images/image-08.png',
         ],
+        false,
       ),
       Robe(
         'assets/images/lunette1.png',
@@ -497,6 +535,7 @@ class Robe {
           'assets/images/image-08.png',
           'assets/images/image-08.png',
         ],
+        false,
       ),
 
       Robe(
@@ -511,6 +550,7 @@ class Robe {
           'assets/images/image-08.png',
           'assets/images/image-08.png',
         ],
+        false,
       ),
 
       Robe(
@@ -525,6 +565,7 @@ class Robe {
           'assets/images/image-08.png',
           'assets/images/image-08.png',
         ],
+        false,
       ),
 
       Robe(
@@ -539,6 +580,7 @@ class Robe {
           'assets/images/image-08.png',
           'assets/images/image-08.png',
         ],
+        false,
       ),
 
       Robe(
@@ -553,6 +595,7 @@ class Robe {
           'assets/images/image-08.png',
           'assets/images/image-08.png',
         ],
+        false,
       ),
     ];
   }
