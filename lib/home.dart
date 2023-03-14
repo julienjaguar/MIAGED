@@ -56,7 +56,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
     List<Robe> itemsFiltres = robes;
 
-  List<Robe> isFavorites = []; // Ajout de la variable favorites ici
 
 
   final TextEditingController searchController = TextEditingController();
@@ -363,10 +362,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
                                                          
                                              itemsFiltres[index].isFavorite = !itemsFiltres[index].isFavorite;
-                                             debugPrint(isFavorites.toString());
+                                            
+                                            
+                                             debugPrint(itemsFiltres[index].isFavorite.toString());
                                              
 
-                                             
+              
                                            });
                                           },
 
