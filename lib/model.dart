@@ -30,7 +30,7 @@ class Robe {
           'assets/images/image-01.png',
           'assets/images/image-01.png',
         ],
-        false,
+        true,
 
       ),
       Robe(
@@ -45,7 +45,7 @@ class Robe {
           'assets/images/image-02.png',
           'assets/images/image-02.png',
         ],
-        false,
+        true,
       ),
        Robe(
         'assets/images/image-03.png',

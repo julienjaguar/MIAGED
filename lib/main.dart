@@ -1,118 +1,93 @@
+import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:projet_vetements_miage/favorite.dart';
+import 'package:projet_vetements_miage/paiement.dart';
+import 'package:projet_vetements_miage/profil.dart';
 
+import 'app_styles.dart';
 import 'home.dart';
 
 void main() {
-  runApp(
-    const MyApp(),
-  );
+  runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   State<MyApp> createState() => _MyAppState();
 }
-
 class _MyAppState extends State<MyApp> {
+  int _currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
-
-    return const MaterialApp(
-
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: HomeScreen(),
-       // bottomNavigationBar: navigationBar(),
-
+        body: _getPage(_currentIndex),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        floatingActionButton: Container(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 8,
+          ),
+          height: 64,
+          child: CustomNavigationBar(
+            isFloating: true,
+            borderRadius: const Radius.circular(40),
+            selectedColor: kWhite,
+            unSelectedColor: kGrey,
+            backgroundColor: kYellow,
+            strokeColor: const Color.fromARGB(0, 0, 0, 0),
+            scaleFactor: 0.1,
+            iconSize: 40,
+            items: [
+              CustomNavigationBarItem(
+                icon: _currentIndex == 0
+                    ? SvgPicture.asset('assets/home_icon_selected.svg')
+                    : SvgPicture.asset('assets/home_icon_unselected.svg'),
+              ),
+              CustomNavigationBarItem(
+                icon: _currentIndex == 1
+                    ? SvgPicture.asset('assets/cart_icon_selected.svg')
+                    : SvgPicture.asset('assets/cart_icon_unselected.svg'),
+              ),
+              CustomNavigationBarItem(
+                icon: _currentIndex == 2
+                    ? SvgPicture.asset('assets/favorite_icon_selected.svg')
+                    : SvgPicture.asset('assets/favorite_icon_unselected.svg'),
+              ),
+              CustomNavigationBarItem(
+                icon: _currentIndex == 3
+                    ? SvgPicture.asset('assets/account_icon_selected.svg')
+                    : SvgPicture.asset('assets/account_icon_unselected.svg'),
+              ),
+            ],
+            currentIndex: _currentIndex,
+            onTap: (index) {
+              setState(() {
+                _currentIndex = index;
+              });
+            },
+          ),
+        ),
       ),
     );
   }
 
-  Widget navigationBar() {
-    return Container(
-      color: const Color(0xfff6f8ff),
-      child: Container(
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-                color: Colors.grey.withOpacity(0.2),
-                spreadRadius: 5,
-                blurRadius: 10),
-          ],
-        ),
-        child: ClipRRect(
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(30),
-            topRight: Radius.circular(30),
-          ),
-          child: BottomNavigationBar(
-            selectedItemColor: const Color(0xFF5F67EA),
-            selectedFontSize: 12,
-            unselectedFontSize: 12,
-            unselectedItemColor: Colors.grey.withOpacity(0.7),
-            type: BottomNavigationBarType.fixed,
-            items: [
-              const BottomNavigationBarItem(
-                label: 'home',
-                icon: Icon(
-                  Icons.home_rounded,
-                  size: 50,
-                ),
-              ),
-              BottomNavigationBarItem(
-                label: "Application",
-                icon: Container(
-                  margin: const EdgeInsets.all(5),
-                  padding: const EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                    color: Colors.grey.withOpacity(0.2),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: const Icon(
-                    Icons.more_horiz_outlined,
-                    size: 30,
-                    color: Colors.grey,
-                  ),
-                ),
-              ),
-              BottomNavigationBarItem(
-                label: "Film",
-                icon: Container(
-                  margin: const EdgeInsets.all(5),
-                  padding: const EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                    color: Colors.grey.withOpacity(0.2),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: const Icon(
-                    Icons.play_arrow_rounded,
-                    size: 30,
-                    color: Colors.grey,
-                  ),
-                ),
-              ),
-              BottomNavigationBarItem(
-                label: "Book",
-                icon: Container(
-                  margin: const EdgeInsets.all(5),
-                  padding: const EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                    color: Colors.grey.withOpacity(0.2),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: const Icon(
-                    Icons.auto_stories_rounded,
-                    size: 30,
-                    color: Colors.grey,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
+  Widget _getPage(int index) {
+    switch (index) {
+      case 0:
+        return const HomeScreen();
+      case 1:
+        return const PaiementScreen();
+      case 2:
+        return const FavoriteScreen();
+      case 3:
+        return const ProfilScreen();
+      default:
+        return const HomeScreen();
+    }
   }
 }

@@ -56,10 +56,21 @@ class _HomeScreenState extends State<HomeScreen> {
 
     List<Robe> itemsFiltres = robes;
 
+  // recuperer les robes favorites
+
+  final List<Robe> favoriteRobes = robes.where((robe) => robe.isFavorite).toList();
+
 
 
   final TextEditingController searchController = TextEditingController();
 
+
+void updateFavorite(Robe robe) {
+  setState(() {
+    robe.isFavorite = !robe.isFavorite;
+
+  });
+}
   
 
   @override
@@ -139,7 +150,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   color: kDarkGrey,
                 ),
                 contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-                prefixIcon: const Icon(Icons.search, color: kGrey),
+                prefixIcon: const Icon(Icons.filter_list, color: kGrey),
                 filled: true,
                 fillColor: kLightGrey,
                 enabledBorder: kInputBorder,
@@ -161,15 +172,19 @@ class _HomeScreenState extends State<HomeScreen> {
               
               child: IconButton(
         onPressed: () {
+
           // Rechercher les robes contenant la chaîne de recherche
+
           final String query = searchController.text.toLowerCase();
+
           setState(() {
+            
             itemsFiltres = robes
                 .where((robe) => robe.nom.toLowerCase().contains(query))
                 .toList();
           });
         },
-                icon: const Icon(Icons.filter_list, color: kDarkBrown),
+                icon: const Icon(Icons.search, color: kDarkBrown),
               ),
             ),
           ],),
@@ -224,7 +239,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
                     debugPrint('categorie selectionnee : ${categories[index]}');
                      debugPrint(categories[index]);
-         
 
                     });
 
@@ -360,14 +374,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
                                            setState(() {
 
-                                                         
-                                             itemsFiltres[index].isFavorite = !itemsFiltres[index].isFavorite;
-                                            
-                                            
-                                             debugPrint(itemsFiltres[index].isFavorite.toString());
-                                             
+                                              updateFavorite(itemsFiltres[index]); 
 
-              
+                                               debugPrint('isFavorite : ${itemsFiltres[index].isFavorite}');
+
+
+
                                            });
                                           },
 

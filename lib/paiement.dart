@@ -26,7 +26,7 @@ class _PaiementScreenState extends State<PaiementScreen> {
       ),
       body: const Center(
         child: Text(
-          'Paiement',
+          'Panier / Paiement',
           style: TextStyle(
             fontSize: 24.0,
             fontWeight: FontWeight.bold,
