@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:projet_vetements_miage/PanierPage.dart';
 import 'package:projet_vetements_miage/app_styles.dart';
 import 'package:projet_vetements_miage/counter.dart';
 import 'package:projet_vetements_miage/paiement.dart';
 import 'package:projet_vetements_miage/size_config.dart';
+import 'package:provider/provider.dart';
 import 'package:readmore/readmore.dart';
 
 import 'package:projet_vetements_miage/model.dart';
@@ -22,6 +24,19 @@ class ProductDetailPage extends StatefulWidget {
   State<ProductDetailPage> createState() => _ProductDetailPageState();
 }
 
+class Panier extends ChangeNotifier {
+  List<Robe> articles = [];
+
+  void ajouterArticle(Robe robe) {
+    articles.add(robe);
+    notifyListeners(); // Notifie les écouteurs de tout changement dans le panier
+  }
+
+  void supprimerArticle(Robe robe) {
+    articles.remove(robe);
+    notifyListeners(); // Notifie les écouteurs de tout changement dans le panier
+  }
+}
 
 
 class _ProductDetailPageState extends State<ProductDetailPage> {
@@ -40,18 +55,36 @@ final List<String> color = ['Black', 'White', 'Red', 'Blue'];
 
 final Counter _counter = Counter();
 
+void selectSize(int index) {
+  
+  setState(() {
+    for (int i = 0; i < isButtonPressed.length; i++) {
+      if (i == index) {
+        isButtonPressed[i] = true;
+        widget.robe.tailleChoisie = widget.robe.tailles[i];
+      } else {
+        isButtonPressed[i] = false;
+      }
+    }
+  });
+}
+ void _incrementCounter() {
+  setState(() {
+    _counter.value++;
+    widget.robe.quantiteChoisie = _counter.value;
+  });
+}
 
-  void _incrementCounter() {
-    setState(() {
-      _counter.increment();
-    });
-  }
+void _decrementCounter() {
+  setState(() {
+    if (_counter.value > 1) {
+      _counter.value--;
+      widget.robe.quantiteChoisie = _counter.value;
+    }
+  });
+}
 
-  void _decrementCounter() {
-    setState(() {
-      _counter.decrement();
-    });
-  }
+  
 
 
 
@@ -65,24 +98,15 @@ final Counter _counter = Counter();
     SizeConfig().init(context);
 return  Scaffold(
      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: 
-      
+      floatingActionButton: GestureDetector(
+              
+              onTap: () {
+                final panier = Provider.of<Panier>(context, listen: false);
+                panier.ajouterArticle(widget.robe);
+                debugPrint('Element ajouté avec succès dans le panier');
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const PanierPage()));
+              },
 
-
-
-
-
-
-
-
-      GestureDetector(
-        onTap: () {
-          debugPrint(' Elements ajouté avec succès dans le panier');
-           Navigator.push(context, MaterialPageRoute(builder: (context) => const PaiementScreen()));
-           
-  
-         
-        },
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 8),
           height: 60,
@@ -218,6 +242,23 @@ return  Scaffold(
                     ),
                     
                   ),
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -402,9 +443,13 @@ return  Scaffold(
 
                          
                       GestureDetector(
+
+
                         onTap: () {
                           setState(() {
-      isButtonPressed[0] = !isButtonPressed[0];
+
+      selectSize(0);
+
                           });
                         },
                         child: Container(
@@ -421,7 +466,7 @@ return  Scaffold(
                           ),
                           child: Center(
                             child: Text(
-                              'S',
+                                  widget.robe.tailles[0],
                               style: kEncodeSansRagular.copyWith(
                                 color: kDarkBrown,
                                 fontSize: SizeConfig.blockSizeHorizontal! * 2.7,
@@ -449,7 +494,8 @@ return  Scaffold(
                          GestureDetector(
                         onTap: () {
                           setState(() {
-      isButtonPressed[1] = !isButtonPressed[1];
+      selectSize(1);
+
                           });
                         },
                         child: Container(
@@ -466,7 +512,7 @@ return  Scaffold(
                           ),
                           child: Center(
                             child: Text(
-                              'M',
+                                  widget.robe.tailles[1],
                               style: kEncodeSansRagular.copyWith(
                                 color: kDarkBrown,
                                 fontSize: SizeConfig.blockSizeHorizontal! * 2.7,
@@ -491,7 +537,10 @@ return  Scaffold(
                          GestureDetector(
                         onTap: () {
                           setState(() {
-      isButtonPressed[2] = !isButtonPressed[2];
+
+                              selectSize(2);
+
+
                           });
                         },
                         child: Container(
@@ -508,7 +557,9 @@ return  Scaffold(
                           ),
                           child: Center(
                             child: Text(
-                              'L',
+                                  widget.robe.tailles[2]
+
+                              ,
                               style: kEncodeSansRagular.copyWith(
                                 color: kDarkBrown,
                                 fontSize: SizeConfig.blockSizeHorizontal! * 2.7,
@@ -535,7 +586,8 @@ return  Scaffold(
                            GestureDetector(
                         onTap: () {
                           setState(() {
-      isButtonPressed[3] = !isButtonPressed[3];
+      selectSize(3);
+
                           });
                         },
                         child: Container(
@@ -552,7 +604,7 @@ return  Scaffold(
                           ),
                           child: Center(
                             child: Text(
-                              'XL',
+                                  widget.robe.tailles[3],
                               style: kEncodeSansRagular.copyWith(
                                 color: kDarkBrown,
                                 fontSize: SizeConfig.blockSizeHorizontal! * 2.7,

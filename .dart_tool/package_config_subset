@@ -98,6 +98,10 @@ meta
 2.12
 file:///Users/mkvrai/.pub-cache/hosted/pub.dev/meta-1.8.0/
 file:///Users/mkvrai/.pub-cache/hosted/pub.dev/meta-1.8.0/lib/
+nested
+2.12
+file:///Users/mkvrai/.pub-cache/hosted/pub.dev/nested-1.0.0/
+file:///Users/mkvrai/.pub-cache/hosted/pub.dev/nested-1.0.0/lib/
 path
 2.12
 file:///Users/mkvrai/.pub-cache/hosted/pub.dev/path-1.8.2/
@@ -150,6 +154,10 @@ process
 2.14
 file:///Users/mkvrai/.pub-cache/hosted/pub.dev/process-4.2.4/
 file:///Users/mkvrai/.pub-cache/hosted/pub.dev/process-4.2.4/lib/
+provider
+2.12
+file:///Users/mkvrai/.pub-cache/hosted/pub.dev/provider-6.0.5/
+file:///Users/mkvrai/.pub-cache/hosted/pub.dev/provider-6.0.5/lib/
 readmore
 2.16
 file:///Users/mkvrai/.pub-cache/hosted/pub.dev/readmore-2.2.0/

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projet_vetements_miage/product.dart';
+import 'package:projet_vetements_miage/home.dart';
 
-import 'home.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -89,8 +89,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     );
                   },
                    style: ButtonStyle(
-    minimumSize: MaterialStateProperty.all(const Size(200, 50)),
-  ),
+                  minimumSize: MaterialStateProperty.all(const Size(200, 50)),
+                ),
                   child: const Text('Se connecter'),
                   
                 ),

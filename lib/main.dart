@@ -1,15 +1,25 @@
 import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:projet_vetements_miage/PanierPage.dart';
 import 'package:projet_vetements_miage/favorite.dart';
 import 'package:projet_vetements_miage/paiement.dart';
+import 'package:projet_vetements_miage/product.dart';
 import 'package:projet_vetements_miage/profil.dart';
+import 'package:provider/provider.dart';
 
 import 'app_styles.dart';
 import 'home.dart';
 
+
+
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider<Panier>(
+      create: (context) => Panier(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {
@@ -81,7 +91,7 @@ class _MyAppState extends State<MyApp> {
       case 0:
         return const HomeScreen();
       case 1:
-        return const PaiementScreen();
+        return const PanierPage();
       case 2:
         return const FavoriteScreen();
       case 3:

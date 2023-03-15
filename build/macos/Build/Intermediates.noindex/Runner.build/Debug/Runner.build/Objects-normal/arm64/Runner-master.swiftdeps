@@ -1,0 +1,8 @@
+version: "Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)"
+options: "96fea0b8ade6017034835b28cd3c17f9060ea7e59e08c64204bd393e431a28c0"
+build_start_time: [1678905116, 526787996]
+build_end_time: [1678905123, 671666145]
+inputs:
+  "/Users/mkvrai/Desktop/MIAGED/macos/Flutter/GeneratedPluginRegistrant.swift": [1678905081, 235385894]
+  "/Users/mkvrai/Desktop/MIAGED/macos/Runner/AppDelegate.swift": [1670244759, 365662097]
+  "/Users/mkvrai/Desktop/MIAGED/macos/Runner/MainFlutterWindow.swift": [1670244759, 366558551]

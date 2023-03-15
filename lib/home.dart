@@ -149,7 +149,7 @@ void updateFavorite(Robe robe) {
                   color: kDarkGrey,
                 ),
                 contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-                prefixIcon: const Icon(Icons.filter_list, color: kGrey),
+                prefixIcon: const Icon(Icons.filter_list, color: kBlack, size: 20),
                 filled: true,
                 fillColor: kLightGrey,
                 enabledBorder: kInputBorder,
