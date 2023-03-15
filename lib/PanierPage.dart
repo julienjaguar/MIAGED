@@ -50,19 +50,19 @@ class PanierPage extends StatelessWidget {
 
 
           Container(
-            padding: const EdgeInsets.all(70),
+            padding: const EdgeInsets.all(50),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   'Total: ${montantTotal().toStringAsFixed(2)} €',
-                  style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.blue),
                 ),
                 ElevatedButton(
                   onPressed: () {
                   },
                   style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.black, backgroundColor: Colors.yellow, // Changer la couleur du texte en noir
+                    foregroundColor: Colors.blue, backgroundColor: Colors.yellow, // Changer la couleur du texte en noir
                   ),
                   child: const Text('Payer'),
                 ),
