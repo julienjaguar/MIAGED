@@ -20,7 +20,11 @@ class PanierPage extends StatelessWidget {
     
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Panier')),
+      appBar: AppBar(title: 
+      const Text('Panier', style: TextStyle(color: Colors.black, fontSize: 23, fontWeight: FontWeight.bold)),
+       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        elevation: 0,
+      ),
       body: Column(
         children: [
           Expanded(

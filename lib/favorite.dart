@@ -30,7 +30,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
         title: const Text(
           'Mes robes favorites', 
           style: TextStyle(
-            color: Colors.blue,
+            color: Colors.black,
             fontSize: 25.0,
             fontWeight: FontWeight.bold,
           ),
