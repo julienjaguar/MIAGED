@@ -68,7 +68,6 @@ class _HomeScreenState extends State<HomeScreen> {
 void updateFavorite(Robe robe) {
   setState(() {
     robe.isFavorite = !robe.isFavorite;
-
   });
 }
   
@@ -172,13 +171,9 @@ void updateFavorite(Robe robe) {
               
               child: IconButton(
         onPressed: () {
-
           // Rechercher les robes contenant la chaîne de recherche
-
           final String query = searchController.text.toLowerCase();
-
           setState(() {
-            
             itemsFiltres = robes
                 .where((robe) => robe.nom.toLowerCase().contains(query))
                 .toList();
@@ -239,6 +234,7 @@ void updateFavorite(Robe robe) {
 
                     debugPrint('categorie selectionnee : ${categories[index]}');
                      debugPrint(categories[index]);
+
 
                     });
 
@@ -368,88 +364,106 @@ void updateFavorite(Robe robe) {
                                       Positioned(
                                         right: 12,
                                         top: 12,
+                                        
+                                        
+                                        
                                         child: GestureDetector(
                                           onTap: () {
+                                         setState(() {
 
 
-                                           setState(() {
+                                         // pour changer l'etat du bouton favoris quand on clique dessus
 
-                                              updateFavorite(itemsFiltres[index]); 
-
-                                               debugPrint('isFavorite : ${itemsFiltres[index].isFavorite}');
+                                          itemsFiltres[index].isFavorite = !itemsFiltres[index].isFavorite;
 
 
 
-                                           });
-                                          },
+                                          // si le bouton est selectionne, on ajoute l'item a la liste des favoris
 
-
-                                          child: SvgPicture.asset(
-                                                      itemsFiltres[index].isFavorite
-
-                                                ? 'assets/favorite_cloth_icon_selected.svg'
-                                                : 'assets/favorite_cloth_icon_unselected.svg',
-                                          ),
-                                        ),
-                                      )
+                                                if (itemsFiltres[index].isFavorite) {
+                                    favoriteRobes.add(itemsFiltres[index]);
+                                    debugPrint('favoris : ${favoriteRobes.length})');
+                                    debugPrint(favoriteRobes.toString());
+                                    for (var i = 0; i < favoriteRobes.length; i++) {
+                                        debugPrint(favoriteRobes[i].nom);
+                                    }
+                                } else {
+                                    // si le bouton n'est pas selectionne, on retire l'item de la liste des favoris
+                                    favoriteRobes.remove(itemsFiltres[index]);
+                                    debugPrint('favoris : ${favoriteRobes.length})');
+                                    debugPrint('favoris : ${favoriteRobes.length}');
+                                    for (var i = 0; i < favoriteRobes.length; i++) {
+                                        debugPrint(favoriteRobes[i].nom);
+                                    }
+                                }
+                                                                        }
+                                );
+                                                                          },
+                                  child: SvgPicture.asset(
+                                    itemsFiltres[index].isFavorite
+                                      ? 'assets/favorite_cloth_icon_selected.svg'
+                                      : 'assets/favorite_cloth_icon_unselected.svg',
+                                  ),
+                                ),
+                                                                      )
                                     ],
                                   ),
                             
-                            const SizedBox(
-                              height: 8,
-                            ),
-
-                            // nom du produit
-                            
-                            Text(
-                              itemsFiltres[index].nom,
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: kEncodeSansRagular.copyWith(
-                                color: kBlack,
-                                fontSize: SizeConfig.blockSizeHorizontal! * 3.5,
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 8),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Text(
-                                      '${itemsFiltres[index].prix.toStringAsFixed(2)} €',
-                                    style: kEncodeSansSemibold.copyWith(
-                                      color: kDarkBrown,
-                                      fontSize: SizeConfig.blockSizeHorizontal! * 3.5,
+                                    const SizedBox(
+                                      height: 8,
                                     ),
-                                  ),
-                                  Row(
-                                    children: [
-                                      const Icon(
-                                        Icons.star,
-                                        color: kYellow,
-                                        size: 16,
+
+                                    // nom du produit
+                                                  
+                                          Text(
+                                            itemsFiltres[index].nom,
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: kEncodeSansRagular.copyWith(
+                                              color: kBlack,
+                                              fontSize: SizeConfig.blockSizeHorizontal! * 3.5,
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.only(top: 8),
+                                            child: Row(
+                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                    '${itemsFiltres[index].prix.toStringAsFixed(2)} €',
+                                                  style: kEncodeSansSemibold.copyWith(
+                                                    color: kDarkBrown,
+                                                    fontSize: SizeConfig.blockSizeHorizontal! * 3.5,
+                                                  ),
+                                                ),
+                                                Row(
+                                                  children: [
+                                                    const Icon(
+                                                      Icons.star,
+                                                      color: kYellow,
+                                                      size: 16,
+                                                    ),
+                                                    const SizedBox(
+                                                      width: 8,
+                                                    ),
+                                                    Text(
+                                                      '5.0',
+                                                      style: kEncodeSansRagular.copyWith(
+                                                        color: kDarkBrown,
+                                                        fontSize: SizeConfig.blockSizeHorizontal! * 3,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                          )
+                                        ],
                                       ),
-                                      const SizedBox(
-                                        width: 8,
-                                      ),
-                                      Text(
-                                        '5.0',
-                                        style: kEncodeSansRagular.copyWith(
-                                          color: kDarkBrown,
-                                          fontSize: SizeConfig.blockSizeHorizontal! * 3,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                      );
-                    },
-                  ),
+                                    );
+                                  },
+                                ),
 
 
                             const SizedBox(

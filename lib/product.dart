@@ -22,7 +22,11 @@ class ProductDetailPage extends StatefulWidget {
   State<ProductDetailPage> createState() => _ProductDetailPageState();
 }
 
+
+
 class _ProductDetailPageState extends State<ProductDetailPage> {
+
+  
 
 
 // declaration de Is pressed pour choisir la taille
@@ -63,10 +67,19 @@ return  Scaffold(
      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: 
       
+
+
+
+
+
+
+
+
       GestureDetector(
         onTap: () {
           debugPrint(' Elements ajouté avec succès dans le panier');
            Navigator.push(context, MaterialPageRoute(builder: (context) => const PaiementScreen()));
+           
   
          
         },

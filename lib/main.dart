@@ -9,7 +9,7 @@ import 'app_styles.dart';
 import 'home.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {

@@ -5,10 +5,13 @@ class PaiementScreen extends StatefulWidget {
 
   @override
   State<PaiementScreen> createState() => _PaiementScreenState();
+  
 }
 
 class _PaiementScreenState extends State<PaiementScreen> {
   @override
+
+  
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
