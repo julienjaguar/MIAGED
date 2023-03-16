@@ -1,0 +1,37 @@
+# Fichiers et dossiers générés par Flutter
+**/ios/Flutter/.last_build_id
+**/ios/Flutter/flutter_export_environment.sh
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/App.framework
+**/ios/Flutter/Flutter.podspec
+**/ios/Flutter/Generated.xcconfig
+**/ios/.symlinks/
+**/ios/Flutter/ephemeral/
+*.xcworkspace
+*.dart_tool/
+.packages
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+
+# Fichiers et dossiers générés par l'IDE
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Fichiers temporaires
+*.tmp
+*.swp
+*.bak
+*.sublime-workspace
+
+# Fichiers de configuration Firebase
+**/ios/Runner/GoogleService-Info.plist
+**/android/app/google-services.json
+
+# Autres fichiers et dossiers spécifiques au système d'exploitation
+.DS_Store
+Thumbs.db
