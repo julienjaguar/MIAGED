@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projet_vetements_miage/paiement.dart';
 import 'package:projet_vetements_miage/product.dart';
 import 'package:provider/provider.dart';
 
@@ -74,14 +75,22 @@ class PanierPage extends StatelessWidget {
                   'Total: ${montantTotal().toStringAsFixed(2)} €',
                   style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.blue),
                 ),
-                ElevatedButton(
-                  onPressed: () {
-                  },
-                  style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.blue, backgroundColor: Colors.yellow, // Changer la couleur du texte en noir
-                  ),
-                  child: const Text('Payer'),
-                ),
+               ElevatedButton(
+  onPressed: () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const PaiementScreen(),
+      ),
+    );
+  },
+  style: ElevatedButton.styleFrom(
+    foregroundColor: Colors.blue,
+    backgroundColor: Colors.yellow,
+  ),
+  child: const Text('Payer'),
+),
+
               ],
             ),
           ),
