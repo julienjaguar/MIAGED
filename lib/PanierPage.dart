@@ -17,14 +17,24 @@ class PanierPage extends StatelessWidget {
   return total;
 }
 
-    
-
     return Scaffold(
-      appBar: AppBar(title: 
-      const Text('Panier', style: TextStyle(color: Colors.black, fontSize: 23, fontWeight: FontWeight.bold)),
-       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        elevation: 0,
+  appBar: AppBar(
+    title: const Text(
+      'Panier',
+      style: TextStyle(color: Colors.black, fontSize: 23, fontWeight: FontWeight.bold),
+    ),
+    backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+    elevation: 0,
+    leading: IconButton(
+      icon: const Icon(
+        Icons.arrow_back,
+        color: Colors.black,
       ),
+      onPressed: () {
+        Navigator.of(context).pop();
+      },
+    ),
+  ),
       body: Column(
         children: [
           Expanded(
@@ -45,6 +55,8 @@ class PanierPage extends StatelessWidget {
 
                   trailing: IconButton(
                     icon: const Icon(Icons.delete),
+                    color: Colors.black,
+                    
                     onPressed: () => panier.supprimerArticle(robe),
                   ),
                 );
