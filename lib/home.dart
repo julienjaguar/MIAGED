@@ -381,20 +381,40 @@ void updateFavorite(Robe robe) {
                                           // si le bouton est selectionne, on ajoute l'item a la liste des favoris
 
                                                 if (itemsFiltres[index].isFavorite) {
+                                    
+                                    
                                     favoriteRobes.add(itemsFiltres[index]);
-                                    debugPrint('favoris : ${favoriteRobes.length})');
-                                    debugPrint(favoriteRobes.toString());
-                                    for (var i = 0; i < favoriteRobes.length; i++) {
-                                        debugPrint(favoriteRobes[i].nom);
-                                    }
-                                } else {
-                                    // si le bouton n'est pas selectionne, on retire l'item de la liste des favoris
-                                    favoriteRobes.remove(itemsFiltres[index]);
-                                    debugPrint('favoris : ${favoriteRobes.length})');
+                                    
+                                    
                                     debugPrint('favoris : ${favoriteRobes.length}');
-                                    for (var i = 0; i < favoriteRobes.length; i++) {
-                                        debugPrint(favoriteRobes[i].nom);
-                                    }
+                                    debugPrint(favoriteRobes.toString());
+                                   
+                                   
+                                   // for (var i = 0; i < favoriteRobes.length; i++) {
+                                    //    debugPrint(favoriteRobes[i].nom);
+                                    // }
+
+
+                                } else {
+
+
+                                  
+                                    // si le bouton n'est pas selectionne, on retire l'item de la liste des favoris
+                                   
+                                   
+                                    favoriteRobes.remove(itemsFiltres[index]);
+                                    
+                                    
+                                    debugPrint('favoris : ${favoriteRobes.length}');
+                                    
+                                    debugPrint(favoriteRobes.toString());
+
+                                   
+                                   
+                                   
+                                    // for (var i = 0; i < favoriteRobes.length; i++) {
+                                    //     debugPrint(favoriteRobes[i].nom);
+                                    // }
                                 }
                                                                         }
                                 );

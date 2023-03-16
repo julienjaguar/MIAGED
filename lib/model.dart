@@ -521,7 +521,7 @@ class Robe {
           'assets/images/image-08.png',
           'assets/images/image-08.png',
         ],
-        false,
+        true,
         "S", // taille choisie par défaut
           1, // quantité choisie par défaut
       ),
@@ -761,8 +761,8 @@ class Robe {
           'assets/images/image-08.png',
           'assets/images/image-08.png',
           'assets/images/image-08.png',
-        ],
-        false,
+        ], 
+        true,
         "S", // taille choisie par défaut
           1, // quantité choisie par défaut
       ),
