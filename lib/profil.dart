@@ -22,7 +22,7 @@ class _ProfilScreenState extends State<ProfilScreen> {
 
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  final int _currentIndex = 0;
+  final int _currentIndex = 3;
 
 
   @override

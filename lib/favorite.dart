@@ -21,7 +21,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
   }
 
   final List<Robe> robes = Robe.robes();
-    final int _currentIndex = 0;
+    final int _currentIndex = 2;
 
 
   @override
