@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:projet_vetements_miage/bienvenue.dart';
 import 'package:projet_vetements_miage/home.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -24,7 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 const Text(
                   'MIAGED',
                   style: TextStyle(
-                    color: Colors.blue,
+                    color: Colors.yellow,
                     fontSize: 70,
                     fontWeight: FontWeight.bold,
                   ),
@@ -33,12 +32,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 TextFormField(
                   decoration: const InputDecoration(
                     labelText: 'Email',
-                    labelStyle: TextStyle(color: Colors.blue),
+                    labelStyle: TextStyle(color: Colors.yellow),
                     focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.blue),
+                      borderSide: BorderSide(color: Colors.black),
                     ),
                     enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.blue),
+                      borderSide: BorderSide(color: Colors.black),
                     ),
                   ),
                 ),
@@ -47,12 +46,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   obscureText: true,
                   decoration: const InputDecoration(
                     labelText: 'Mot de passe',
-                    labelStyle: TextStyle(color: Colors.blue),
+                    labelStyle: TextStyle(color: Colors.yellow),
                     focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.blue),
+                      borderSide: BorderSide(color: Colors.black),
                     ),
                     enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.blue),
+                      borderSide: BorderSide(color: Colors.black),
                     ),
                   ),
                 ),
