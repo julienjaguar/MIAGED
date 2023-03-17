@@ -10,6 +10,7 @@ class Robe {
   bool isFavorite;
   String tailleChoisie;
   int quantiteChoisie;
+  String etat;
 
 
   Robe(
@@ -24,6 +25,7 @@ class Robe {
     this.isFavorite,
     this.tailleChoisie,
     this.quantiteChoisie,
+    this.etat
   );
 
   static List<Robe> robes() {
@@ -43,8 +45,8 @@ class Robe {
         ],
         false,
          "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-
+                   1,
+"Mauvais état"
       ),
       Robe(
         'assets/images/image-02.png',
@@ -62,8 +64,8 @@ class Robe {
         ],
         true,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Bonne état"      ),
        Robe(
         'assets/images/image-03.png',
         'Robe sirène da Squaza',
@@ -80,8 +82,8 @@ class Robe {
         ],
         false,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Mauvais état"      ),
        Robe(
         'assets/images/image-04.png',
         'Robe portefeuille di Monte',
@@ -98,8 +100,8 @@ class Robe {
         ],
         false,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Bonne état"      ),
        Robe(
         'assets/images/image-05.png',
         'Robe patineuse de la côte',
@@ -116,8 +118,8 @@ class Robe {
         ],
         false,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Mauvais état"      ),
        Robe(
         'assets/images/image-06.png',
         'Robe bustier Sacnchez',
@@ -134,8 +136,8 @@ class Robe {
         ],
         false,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Bonne état"      ),
        Robe(
         'assets/images/image-07.png',
         'Robe chemise Kassin',
@@ -152,8 +154,8 @@ class Robe {
         ],
         false,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Bonne état"      ),
        Robe(
         'assets/images/image-08.png',
         'Robe chemise Croite',
@@ -170,8 +172,8 @@ class Robe {
         ],
         false,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Bonne état"      ),
       Robe(
         'assets/images/shirt1.png',
         'Lobby T-shirt',
@@ -188,8 +190,8 @@ class Robe {
         ],
         false,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Bonne état"      ),
       Robe(
         'assets/images/shirt2.png',
         'Kind Swear T-shirt',
@@ -206,8 +208,8 @@ class Robe {
         ],
         true,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Bonne état"      ),
       Robe(
         'assets/images/shirt3.png',
         'Blue beach T-shirt',
@@ -224,8 +226,8 @@ class Robe {
         ],
         false,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Bonne état"      ),
       Robe(
         'assets/images/shirt4.png',
         'Blach eyes T-shirt',
@@ -242,8 +244,8 @@ class Robe {
         ],
         false,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Bonne état"      ),
 
       Robe(
         'assets/images/shirt5.png',
@@ -261,8 +263,8 @@ class Robe {
         ],
         false,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Bonne état"      ),
 
       Robe(
         'assets/images/shirt6.png',
@@ -280,8 +282,8 @@ class Robe {
         ],
         false,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Bonne état"      ),
 
       Robe(
         'assets/images/shirt7.png',
@@ -299,8 +301,8 @@ class Robe {
         ],
         false,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Bonne état"      ),
 
       Robe(
         'assets/images/chapeau5.png',
@@ -318,8 +320,8 @@ class Robe {
         ],
         false,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Bonne état"      ),
       Robe(
         'assets/images/chapeau4.png',
         'Chapeau thermique',
@@ -336,8 +338,8 @@ class Robe {
         ],
         false,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Bonne état"      ),
       Robe(
         'assets/images/chapeau3.png',
         'Chapeau de paille',
@@ -354,8 +356,8 @@ class Robe {
         ],
         false,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Bonne état"      ),
       Robe(
         'assets/images/chapeau2.png',
         'Chapeau de zorro',
@@ -372,8 +374,8 @@ class Robe {
         ],
         false,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Bonne état"      ),
       Robe(
         'assets/images/chapeau1.png',
         'Chapeau viking',
@@ -390,8 +392,8 @@ class Robe {
         ],
         false,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Bonne état"      ),
 
       Robe(
         'assets/images/maillot4.png',
@@ -409,8 +411,8 @@ class Robe {
         ],
         false,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Bonne état"      ),
 
       Robe(
         'assets/images/maillot3.png',
@@ -428,8 +430,8 @@ class Robe {
         ],
         false,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Bonne état"      ),
 
       Robe(
         'assets/images/maillot2.png',
@@ -447,8 +449,8 @@ class Robe {
         ],
         false,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Bonne état"      ),
 
       Robe(
         'assets/images/maillot1.png',
@@ -466,8 +468,8 @@ class Robe {
         ],
         false,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Mauvais état"      ),
 
        Robe(
         'assets/images/valise5.png',
@@ -485,8 +487,8 @@ class Robe {
         ],
         false,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Bonne état"      ),
 
        Robe(
         'assets/images/valise4.png',
@@ -504,8 +506,8 @@ class Robe {
         ],
         false,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Bonne état"      ),
 
       Robe(
         'assets/images/valise3.png',
@@ -523,8 +525,8 @@ class Robe {
         ],
         true,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Bonne état"      ),
 
       Robe(
         'assets/images/valise2.png',
@@ -542,8 +544,8 @@ class Robe {
         ],
         false,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Bonne état"      ),
 
        Robe(
         'assets/images/valise1.png',
@@ -561,8 +563,8 @@ class Robe {
         ],
         false,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Bonne état"      ),
 
       Robe(
         'assets/images/lunette7.png',
@@ -580,8 +582,8 @@ class Robe {
         ],
         false,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Bonne état"      ),
       Robe(
         'assets/images/lunette6.png',
         'Lunettes Dior',
@@ -598,8 +600,8 @@ class Robe {
         ],
         false,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Bonne état"      ),
       Robe(
         'assets/images/lunette5.png',
         'Lunettes Gucci',
@@ -616,8 +618,8 @@ class Robe {
         ],
         false,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Bonne état"      ),
       Robe(
         'assets/images/lunette4.png',
         'Lunettes Balenciaga',
@@ -634,8 +636,8 @@ class Robe {
         ],
         false,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Bonne état"      ),
       Robe(
         'assets/images/lunette3.png',
         'Lunettes Saint Laurent',
@@ -652,8 +654,8 @@ class Robe {
         ],
         false,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Bonne état"      ),
       Robe(
         'assets/images/lunette2.png',
         'Lunettes Dior',
@@ -670,8 +672,8 @@ class Robe {
         ],
         false,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Bonne état"      ),
       Robe(
         'assets/images/lunette1.png',
         'Lunettes Cartier',
@@ -688,8 +690,8 @@ class Robe {
         ],
         false,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Bonne état"      ),
 
       Robe(
         'assets/images/chaussettes4.png',
@@ -707,8 +709,8 @@ class Robe {
         ],
         false,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Bonne état"      ),
 
       Robe(
         'assets/images/chaussettes3.png',
@@ -726,8 +728,8 @@ class Robe {
         ],
         false,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Mauvais état"      ),
 
       Robe(
         'assets/images/chaussettes2.png',
@@ -745,8 +747,8 @@ class Robe {
         ],
         false,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Mauvais état"      ),
 
       Robe(
         'assets/images/chaussettes1.png',
@@ -764,8 +766,8 @@ class Robe {
         ], 
         true,
         "S", // taille choisie par défaut
-          1, // quantité choisie par défaut
-      ),
+                   1,
+"Bonne état"      ),
     ];
   }
 }

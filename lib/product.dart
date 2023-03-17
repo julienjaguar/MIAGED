@@ -555,6 +555,9 @@ return  Scaffold(
 
                             color: isButtonPressed[2] ? kYellow : kWhite,
                           ),
+
+
+                          
                           child: Center(
                             child: Text(
                                   widget.robe.tailles[2]
@@ -616,11 +619,39 @@ return  Scaffold(
                           
                         ],
                       )
+
+
                     ],
+                  ),
+
+                  Padding(
+                    padding: const EdgeInsets.all(28.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          widget.robe.etat,
+                          style: kEncodeSansBold.copyWith(
+                            color: kDarkBrown,
+                            fontSize: SizeConfig.blockSizeHorizontal! * 3.5,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                  
+                  
+                        
+                      ],
+                    ),
                   ),
                   
                 ],
               ),
+
+              
+
+              
 
 
 
@@ -633,6 +664,14 @@ return  Scaffold(
               const SizedBox(
                 height: 20,
               ),
+
+               Text(
+                        widget.robe.etat,
+                        style: kEncodeSansBold.copyWith(
+                          color: kDarkBrown,
+                          fontSize: SizeConfig.blockSizeHorizontal! * 3.5,
+                        ),
+                      ),
 
             ],
           ),
