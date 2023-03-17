@@ -15,6 +15,8 @@ class ProfilScreen extends StatefulWidget {
 class _ProfilScreenState extends State<ProfilScreen> {
 
 
+final String userId = "user-id";
+
   late TextEditingController _nomController;
   late TextEditingController _prenomController;
   late TextEditingController _emailController;
@@ -32,18 +34,41 @@ class _ProfilScreenState extends State<ProfilScreen> {
 
 
   @override
-  void initState() {
-    super.initState();
-    _nomController = TextEditingController();
-    _prenomController = TextEditingController();
-    _emailController = TextEditingController();
-    _motDePasseController = TextEditingController();
-    _dateNaissanceController = TextEditingController();
-    _loginController = TextEditingController();
-    _codePostaleController = TextEditingController();
-    _villeController = TextEditingController();
+void initState() {
+  super.initState();
+  _nomController = TextEditingController();
+  _prenomController = TextEditingController();
+  _emailController = TextEditingController();
+  _motDePasseController = TextEditingController();
+  _dateNaissanceController = TextEditingController();
+  _loginController = TextEditingController();
+  _codePostaleController = TextEditingController();
+  _villeController = TextEditingController();
 
+  // Chargez les données de l'utilisateur ici
+  _chargerDonneesUtilisateur();
+}
+  
+ void _chargerDonneesUtilisateur() async {
+  CollectionReference users = FirebaseFirestore.instance.collection('users');
+  DocumentSnapshot userSnapshot = await users.doc(userId).get();
+  Map<String, dynamic>? userData = userSnapshot.data() as Map<String, dynamic>?;
+
+  if (userData != null) {
+    setState(() {
+      _nomController.text = userData.containsKey('nom') ? userData['nom'] : '';
+      _prenomController.text = userData.containsKey('prenom') ? userData['prenom'] : '';
+      _emailController.text = userData.containsKey('email') ? userData['email'] : '';
+      _motDePasseController.text = userData.containsKey('motDePasse') ? userData['motDePasse'] : '';
+      _dateNaissanceController.text = userData.containsKey('dateNaissance') ? userData['dateNaissance'] : '';
+      _loginController.text = userData.containsKey('login') ? userData['login'] : '';
+      _codePostaleController.text = userData.containsKey('codePostal') ? userData['codePostal'] : '';
+      _villeController.text = userData.containsKey('ville') ? userData['ville'] : '';
+    });
   }
+}
+
+
 
 void _enregistrerModifications() async {
 

@@ -68,20 +68,21 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
           );
         },
       ),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.favorite),
-        onPressed: () {
-          setState(() {
-            for (var robe in robes) {
-              if (robe.isFavorite) {
-                favoriteRobes.add(robe);
-              } else {
-                favoriteRobes.remove(robe);
-              }
-            }
-          });
-        },
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   child: const Icon(Icons.favorite),
+      //   onPressed: () {
+      //     setState(() {
+      //       for (var robe in robes) {
+      //         if (robe.isFavorite) {
+      //           favoriteRobes.add(robe);
+      //         } else {
+      //           favoriteRobes.remove(robe);
+      //         }
+      //       }
+      //     });
+      //   },
+      // ),
+      
     );
   }
 }

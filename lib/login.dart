@@ -14,6 +14,8 @@ class _LoginScreenState extends State<LoginScreen> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+    bool _showPassword = false;
+
 
   Future<void> _signIn() async {
   try {
@@ -72,13 +74,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   decoration: const InputDecoration(
 
                     labelText: 'Email',
-                    labelStyle: TextStyle(color: Colors.yellow),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black),
-                    ),
+                  
+                   
                   ),
                 ),
 
@@ -88,24 +85,24 @@ class _LoginScreenState extends State<LoginScreen> {
 
 
 
-                TextFormField(
-                  controller: _passwordController,
-                  obscureText: true,
-                  decoration: const InputDecoration(
-                    labelText: 'Mot de passe',
-                    labelStyle: TextStyle(color: Colors.yellow),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black),
-                    ),
+                 TextField(
+                controller: _passwordController,
+                obscureText: !_showPassword,
+                decoration: InputDecoration(
+                  labelText: 'Mot de passe',
+                  suffixIcon: IconButton(
+                    icon: Icon(_showPassword ? Icons.visibility : Icons.visibility_off),
+                    onPressed: () {
+                      setState(() {
+                        _showPassword = !_showPassword;
+                      });
+                    },
                   ),
                 ),
-                const SizedBox(height: 40),
+              ),
+              const SizedBox(height: 76.0),
 
-
-                ElevatedButton(
+ElevatedButton(
                   onPressed: _signIn,
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.yellow),
@@ -117,8 +114,14 @@ class _LoginScreenState extends State<LoginScreen> {
                     style: TextStyle(fontSize: 20),
                   ),
                 ),
+
+          
+
+                
+  
                
               ],
+              
             ),
           ),
         ),
