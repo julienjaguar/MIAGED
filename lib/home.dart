@@ -85,11 +85,11 @@ void updateFavorite(Robe robe) {
     
                return Scaffold(
   bottomNavigationBar: CustomBottomNavigationBar(
-    
     currentIndex: _currentIndex,
   ),
-  body: Material(
-    child: ListView(
+  body: SafeArea(
+    child: Material(
+      child: ListView(
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
@@ -507,7 +507,7 @@ void updateFavorite(Robe robe) {
 
                           ]
                         ),)
-                      );
+                      ),);
                       
 
                     }}
