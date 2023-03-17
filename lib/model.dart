@@ -4,7 +4,7 @@ class Robe {
   num quantite;
   List<String> tailles;
   int prix;
-  String type;
+  String categorie;
   String description;
   List<String> images;
   bool isFavorite;
@@ -19,7 +19,7 @@ class Robe {
     this.quantite,
     this.tailles,
     this.prix,
-    this.type,
+    this.categorie,
     this.description,
     this.images,
     this.isFavorite,

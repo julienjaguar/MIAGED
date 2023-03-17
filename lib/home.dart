@@ -236,7 +236,7 @@ void updateFavorite(Robe robe) {
                       // pour changer la couleur du conteneur quand on clique sur une categorie
                       // filtrage selon la categorie selectionnee
                     
-                    itemsFiltres = robes.where((robe) => robe.type == categories[index]).toList();
+                    itemsFiltres = robes.where((robe) => robe.categorie == categories[index]).toList();
 
                       currentIndex = index;
 
@@ -259,22 +259,18 @@ void updateFavorite(Robe robe) {
                       // conteneur contenant les images des filtres categories
 
                       Container(
-                        margin:  EdgeInsets.only(
-                          
-                          right: index == categories.length - 1 ? 20 : 0,
-                        ),
-                        height: SizeConfig.blockSizeVertical! * 7.5,
-                        width: SizeConfig.blockSizeHorizontal! * 15,
-                        decoration: BoxDecoration(
-                          color: currentIndex == index ? kYellow : kLightGrey,
-                          borderRadius: BorderRadius.circular(kBorderRadius),
-                          
-                        ),
-                      
-                        child: Icon(icons[index], color: kDarkBrown),
+  margin: EdgeInsets.only(
+    right: index == categories.length - 1 ? 20 : 0,
+  ),
+  height: SizeConfig.blockSizeVertical! * 7.5,
+  width: SizeConfig.blockSizeHorizontal! * 15,
+  decoration: BoxDecoration(
+    color: currentIndex == index ? kYellow : kLightGrey,
+    borderRadius: BorderRadius.circular(kBorderRadius),
+  ),
+  child: Icon(icons[index], color: kDarkBrown),
+),
 
-                        
-                      ),
 
                       // sizebox pour creer un espace entre categories et les noms des categories
 
