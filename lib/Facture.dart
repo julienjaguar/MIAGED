@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:projet_vetements_miage/home.dart';
 import 'package:projet_vetements_miage/product.dart';
 import 'package:provider/provider.dart';
 
@@ -10,6 +11,8 @@ class FacturePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final panier = Provider.of<Panier>(context);
     final factureNumero = Random().nextInt(100000);
+
+    double prixTotal = panier.articles.fold(0, (previousValue, robe) => previousValue + (robe.prix * robe.quantiteChoisie));
 
     return Scaffold(
       appBar: AppBar(
@@ -53,10 +56,20 @@ class FacturePage extends StatelessWidget {
             ),
           ),
           Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: Text(
+              'Prix total: ${prixTotal.toStringAsFixed(2)} €',
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+          ),
+          Padding(
             padding: const EdgeInsets.all(100.0),
             child: ElevatedButton(
               onPressed: () {
-                Navigator.of(context).popUntil((route) => route.isFirst);
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HomeScreen()),
+                );
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.yellow,

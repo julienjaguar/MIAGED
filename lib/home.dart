@@ -9,6 +9,7 @@ import 'package:projet_vetements_miage/app_styles.dart';
 import 'package:projet_vetements_miage/product.dart';
 import 'package:projet_vetements_miage/size_config.dart';
 import 'package:projet_vetements_miage/model.dart';
+import 'package:projet_vetements_miage/widgets/Custom_navbar.dart';
 
 
 // ...............................................................................................................
@@ -60,6 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final List<Robe> favoriteRobes = robes.where((robe) => robe.isFavorite).toList();
 
+  final int _currentIndex = 0;
 
 
   final TextEditingController searchController = TextEditingController();
@@ -78,9 +80,16 @@ void updateFavorite(Robe robe) {
       
 
     SizeConfig().init(context);
-    return SafeArea(
-  
-      child: ListView(
+    
+    
+    
+               return Scaffold(
+  bottomNavigationBar: CustomBottomNavigationBar(
+    
+    currentIndex: _currentIndex,
+  ),
+  body: Material(
+    child: ListView(
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
@@ -316,6 +325,8 @@ void updateFavorite(Robe robe) {
 
           const SizedBox(height: 25),
 
+          
+
                   MasonryGridView.count(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
@@ -398,7 +409,7 @@ void updateFavorite(Robe robe) {
                                 } else {
 
 
-                                  
+
                                     // si le bouton n'est pas selectionne, on retire l'item de la liste des favoris
                                    
                                    
@@ -495,7 +506,8 @@ void updateFavorite(Robe robe) {
 
 
                           ]
-                        ),
+                        ),)
                       );
+                      
 
                     }}

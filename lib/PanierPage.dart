@@ -3,6 +3,8 @@ import 'package:projet_vetements_miage/paiement.dart';
 import 'package:projet_vetements_miage/product.dart';
 import 'package:provider/provider.dart';
 
+import 'home.dart';
+
 class PanierPage extends StatelessWidget {
   const PanierPage({super.key});
 
@@ -32,7 +34,11 @@ class PanierPage extends StatelessWidget {
         color: Colors.black,
       ),
       onPressed: () {
-        Navigator.of(context).pop();
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => const HomeScreen(),
+          ),
+        );
       },
     ),
   ),

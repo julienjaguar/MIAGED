@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:projet_vetements_miage/product.dart';
+import 'package:projet_vetements_miage/bienvenue.dart';
 import 'package:projet_vetements_miage/home.dart';
-
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -15,18 +14,13 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        
-
-        body: Center(
+        body: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(32.0),
             child: Column(
-              
-              
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-               
-               
+                const SizedBox(height: 100),
                 const Text(
                   'MIAGED',
                   style: TextStyle(
@@ -35,52 +29,34 @@ class _LoginScreenState extends State<LoginScreen> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-
-                const SizedBox(height: 50),
-                
-
-                const SizedBox(height: 20),
-                const Text(
-                  'Email',
-                  style: TextStyle(
-                    color: Colors.blue,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(height: 20),
-
-                const TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
+                const SizedBox(height: 60),
+                TextFormField(
+                  decoration: const InputDecoration(
                     labelText: 'Email',
+                    labelStyle: TextStyle(color: Colors.blue),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue),
+                    ),
                   ),
                 ),
-
                 const SizedBox(height: 20),
-
-                const Text(
-                  'Mot de passe',
-                  style: TextStyle(
-                    
-                    color: Colors.blue,
-
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-
-                const SizedBox(height: 20),
-
-                const TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
+                TextFormField(
+                  obscureText: true,
+                  decoration: const InputDecoration(
                     labelText: 'Mot de passe',
+                    labelStyle: TextStyle(color: Colors.blue),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue),
+                    ),
                   ),
                 ),
-                
-                const SizedBox(height: 50),
-
+                const SizedBox(height: 40),
                 ElevatedButton(
                   onPressed: () {
                     Navigator.push(
@@ -88,17 +64,21 @@ class _LoginScreenState extends State<LoginScreen> {
                       MaterialPageRoute(builder: (context) => const HomeScreen()),
                     );
                   },
-                   style: ButtonStyle(
-                  minimumSize: MaterialStateProperty.all(const Size(200, 50)),
-                ),
-                  child: const Text('Se connecter'),
-                  
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.yellow),
+                    padding: MaterialStateProperty.all(const EdgeInsets.symmetric(horizontal: 50, vertical: 12)),
+                    shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(30))),
+                  ),
+                  child: const Text(
+                    'Se connecter',
+                    style: TextStyle(fontSize: 20),
+                  ),
                 ),
               ],
             ),
           ),
         ),
       ),
-    ); // ajoutez une parenthèse fermante à la fin de cette ligne
+    );
   }
 }

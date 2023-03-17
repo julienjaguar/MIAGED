@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projet_vetements_miage/widgets/Custom_navbar.dart';
 
 import 'model.dart';
 
@@ -20,10 +21,16 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
   }
 
   final List<Robe> robes = Robe.robes();
+    final int _currentIndex = 0;
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: CustomBottomNavigationBar(
+    
+    currentIndex: _currentIndex,
+  ),
       appBar: AppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         elevation: 0,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projet_vetements_miage/login.dart';
+import 'package:projet_vetements_miage/widgets/Custom_navbar.dart';
 
 
 class ProfilScreen extends StatefulWidget {
@@ -21,6 +22,7 @@ class _ProfilScreenState extends State<ProfilScreen> {
 
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final int _currentIndex = 0;
 
 
   @override
@@ -49,6 +51,11 @@ class _ProfilScreenState extends State<ProfilScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: CustomBottomNavigationBar(
+    
+    currentIndex: _currentIndex,
+  ),
+      
       appBar: AppBar(
         
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
