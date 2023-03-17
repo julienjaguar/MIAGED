@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:projet_vetements_miage/login.dart';
 import 'package:projet_vetements_miage/widgets/Custom_navbar.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 
 
 class ProfilScreen extends StatefulWidget {
@@ -11,6 +13,8 @@ class ProfilScreen extends StatefulWidget {
 }
 
 class _ProfilScreenState extends State<ProfilScreen> {
+
+
   late TextEditingController _nomController;
   late TextEditingController _prenomController;
   late TextEditingController _emailController;
@@ -19,6 +23,8 @@ class _ProfilScreenState extends State<ProfilScreen> {
   late TextEditingController _loginController;
   late TextEditingController _codePostaleController;
   late TextEditingController _villeController;
+
+
 
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -39,9 +45,19 @@ class _ProfilScreenState extends State<ProfilScreen> {
 
   }
 
-  void _enregistrerModifications() {
-  // Implémentez la logique d'enregistrement des données ici
+void _enregistrerModifications() async {
 
+  CollectionReference users = FirebaseFirestore.instance.collection('users');
+  await users.doc(_loginController.text).set({
+    'nom': _nomController.text,
+    'prenom': _prenomController.text,
+    'email': _emailController.text,
+    'motDePasse': _motDePasseController.text,
+    'dateNaissance': _dateNaissanceController.text,
+    'login': _loginController.text,
+    'codePostal': _codePostaleController.text,
+    'ville': _villeController.text,
+  });
   // Affichez un message de confirmation
   ScaffoldMessenger.of(context).showSnackBar(
     const SnackBar(content: Text('Modifications enregistrées')),
@@ -65,6 +81,7 @@ class _ProfilScreenState extends State<ProfilScreen> {
         padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 20),
         child: Form( // Ajout du widget Form ici
           key: _formKey,
+          
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

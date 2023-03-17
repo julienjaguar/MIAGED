@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:projet_vetements_miage/login.dart';
 import 'package:projet_vetements_miage/product.dart';
 import 'package:provider/provider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 import "package:firebase_core/firebase_core.dart";
 
 Future<void> main() async {
-  
+
   WidgetsFlutterBinding.ensureInitialized(); // execution une fois que l app est lancée
   await Firebase.initializeApp();
   runApp(
